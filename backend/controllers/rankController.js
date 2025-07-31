@@ -40,7 +40,7 @@ exports.rankCandidates = async (req, res) => {
             throw new Error('Embedding not returned from local API');
         }
 
-        // 🧠 Compare with resume embeddings
+        //  Compare with resume embeddings
         const ranked = resumes.map((resume) => {
             const similarity = cosineSimilarity(jobEmbedding, resume.embedding);
             return {
@@ -55,7 +55,7 @@ exports.rankCandidates = async (req, res) => {
 
         return res.json(top10);
     } catch (error) {
-        console.error("🔥 Local Embedding API Error:", error.response?.data || error.message);
+        console.error(" Local Embedding API Error:", error.response?.data || error.message);
         return res.status(500).json({
             error: 'Failed to generate embedding via local API',
             details: error.response?.data || error.message,
