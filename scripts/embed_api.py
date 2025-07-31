@@ -1,4 +1,3 @@
-# scripts/embed_api.py
 
 from flask import Flask, request, jsonify
 from sentence_transformers import SentenceTransformer
